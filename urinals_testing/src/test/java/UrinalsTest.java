@@ -7,7 +7,7 @@ import java.util.List;
 
 public class UrinalsTest {
     @Test
-    void testwriteFile(){
+    void testWriteFile(){
         System.out.println("======Harshitha Karur======TEST ONE EXECUTED=======");
         List<String> s=new ArrayList<>();
         s.add("0");
