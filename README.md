@@ -8,5 +8,7 @@ Please run the main class to get solution for urinal occupancy problem. The inpu
 
 Please run 'UrinalsTest.java' under test to run the junit tests on four functions.
 
+The code is in the 'main' branch.
+
 Author: Harshitha Karur
 ASU ID: 1226508636
