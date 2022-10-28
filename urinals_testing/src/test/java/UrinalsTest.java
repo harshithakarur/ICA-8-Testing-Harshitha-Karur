@@ -1,6 +1,9 @@
 import org.example.Main;
 import org.junit.jupiter.api.Assertions;
 import org.testng.annotations.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 import java.util.ArrayList;
 import java.util.List;

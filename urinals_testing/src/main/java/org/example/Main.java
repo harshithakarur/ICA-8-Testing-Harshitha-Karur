@@ -6,9 +6,6 @@ import java.util.List;
 
 
 public class Main {
-//    public static List<String> inputLines=new ArrayList<>();
-//    final static Pattern PATTERN = Pattern.compile("(.*?)(?:\\((\\d+)\\))?(\\.[^.]*)?");
-//    public static List<String> result=new ArrayList<>();
     public static void main(String[] args) {
         List<String> result=new ArrayList<>();
         List<String> inputLines=new ArrayList<>();
@@ -70,24 +67,13 @@ public class Main {
                 fileName = save + (++num) +".txt";
                 file = new File(myDir, fileName);
             }
-//            File myObj = new File("rule.txt");
-//            if(file.createNewFile()) {
-//                System.out.println("File created: " + file.getName());
                 FileWriter myWriter = new FileWriter(fileName);
-//                int n=result.size();
                 for (String value : result) {
                     String s = value + "\n";
                     myWriter.write(s);
                 }
                 myWriter.close();
                 flag=true;
-
-
-//            }
-//            else {
-//                System.out.println("File already exists.");
-//            }
-//            return flag;
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
@@ -104,10 +90,7 @@ public class Main {
         int n=s.length();
 
         for(int i=0;i<n;i++){
-//            System.out.println(flag);
-//            System.out.println(count);
             if(s.charAt(i)=='1' && flag){
-//                System.out.println("return -1");
                 return -1;
             }
             else if(s.charAt(i)=='1'){
@@ -129,8 +112,6 @@ public class Main {
                 flag=false;
             }
         }
-//        System.out.println("Count:"+count);
-//        Integer answer=count;
         return count;
 
     }
