@@ -3,29 +3,28 @@ package org.example;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
-//import java.util.regex.Pattern;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
+
 
 public class Main {
-    public static List<String> inputLines=new ArrayList<>();
+//    public static List<String> inputLines=new ArrayList<>();
 //    final static Pattern PATTERN = Pattern.compile("(.*?)(?:\\((\\d+)\\))?(\\.[^.]*)?");
-    public static List<String> result=new ArrayList<>();
+//    public static List<String> result=new ArrayList<>();
     public static void main(String[] args) {
-        boolean func1=openFile();
-        boolean func2=processString(inputLines);
+        List<String> result=new ArrayList<>();
+        List<String> inputLines=new ArrayList<>();
+        boolean func1=openFile(inputLines);
+        boolean func2=processString(inputLines,result);
         boolean func3=writeFile(result);
         if(func1 && func2 && func3){
             System.out.println("Result written in file");
         }
 
     }
-    public static boolean processString(List<String> x){
-        x = inputLines;
-        int n= x.size();
+    public static boolean processString(List<String> inputLines,List<String> result){
+        int n= inputLines.size();
         boolean flag=false;
         for(int i=0;i<n;i++){
-            Integer answer=countUrinals(x.get(i));
+            Integer answer=countUrinals(inputLines.get(i));
             result.add(answer.toString());
             if(i==(n-1)) {
                 flag = true;
@@ -33,10 +32,8 @@ public class Main {
         }
         return flag;
     }
-    public static boolean openFile(){
+    public static boolean openFile(List<String> inputLines){
         boolean flag=false;
-//        String FILE_PATH = "C:\\Users\\Harshi\\Documents\\SER 515\\ICA 8 testing final\\ICA-8-Testing-Harshitha-Karur\\urinals_testing\\src\\main\\java\\org\\example\\";
-//        String FILE_PATH="https://github.com/harshithakarur/ICA-8-Testing-Harshitha-Karur/blob/552eecefa63688e3822e87efd4d0305db2dbb3ff/urinals_testing/src/main/java/org/example/myfile.dat";
         String FILE_PATH="src/main/java/org/example/";
         BufferedReader br = null;
         try {
@@ -61,13 +58,22 @@ public class Main {
 
     }
 
-    public static boolean writeFile(List<String> x){
+    public static boolean writeFile(List<String> result){
         boolean flag=false;
         try {
-            File myObj = new File("rule.txt");
-            if (myObj.createNewFile()) {
-                System.out.println("File created: " + myObj.getName());
-                FileWriter myWriter = new FileWriter("rule.txt");
+            int num = 0;
+            String save = "rule";
+            String fileName=save+".txt";
+            String myDir="C:\\Users\\Harshi\\Documents\\SER 515\\ICA 8 testing final\\ICA-8-Testing-Harshitha-Karur\\urinals_testing";
+            File file = new File(myDir, fileName);
+            while(file.exists()) {
+                fileName = save + (++num) +".txt";
+                file = new File(myDir, fileName);
+            }
+//            File myObj = new File("rule.txt");
+//            if(file.createNewFile()) {
+//                System.out.println("File created: " + file.getName());
+                FileWriter myWriter = new FileWriter(fileName);
 //                int n=result.size();
                 for (String value : result) {
                     String s = value + "\n";
@@ -75,18 +81,18 @@ public class Main {
                 }
                 myWriter.close();
                 flag=true;
-                return flag;
 
 
-            } else {
-                System.out.println("File already exists.");
-                return flag;
-            }
+//            }
+//            else {
+//                System.out.println("File already exists.");
+//            }
+//            return flag;
         } catch (IOException e) {
             System.out.println("An error occurred.");
             e.printStackTrace();
-            return flag;
         }
+        return flag;
     }
 
 
