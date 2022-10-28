@@ -21,23 +21,7 @@ public class UrinalsTest {
         Assertions.assertEquals( 1 , Main.countUrinals(s));
     }
 
-    @Test
-    void testProcessString(){
-        System.out.println("======Harshitha Karur======TEST THREE EXECUTED=======");
-//        List<String> s=new ArrayList<>();
-//        s.add("10001");
-//        s.add("1001");
-//        s.add("110");
-//        s.add("1000100");
-        String s="100001";
-        Assertions.assertEquals( 1 , Main.countUrinals(s));
-    }
-
-    @Test
-    void testOpenFile(){
-        System.out.println("======Harshitha Karur======TEST FOUR EXECUTED=======");
-        Assertions.assertTrue( Main.openFile());
-    }
+    
 
 
 }
